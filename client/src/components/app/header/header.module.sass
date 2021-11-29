@@ -1,0 +1,31 @@
+.header
+    height: 150px
+    background-color: #f3f6f7
+    width: 100%
+    display: flex
+    justify-content: space-between
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2)
+    position: fixed
+    z-index: 999
+    padding: 0rem 2rem
+
+    .hamburgerMenu
+        text-align: left
+        width: 250px
+        padding: 15px 0px
+
+    .logoutLink
+        &:hover
+            cursor: pointer
+
+    .headerUserActions
+        justify-content: flex-end
+
+.header > div
+    display: flex!important
+    justify-content: center
+    align-items: center
+    width: 250px
+
+    h2
+        margin: 0
