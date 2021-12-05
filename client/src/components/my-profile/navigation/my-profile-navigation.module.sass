@@ -1,0 +1,48 @@
+.myProfileNavigation
+    display: flex
+    flex-direction: column
+    min-width: 300px
+    width: fit-content
+
+    .myProfileInfo
+        display: flex
+        border-bottom: 1px solid #d3d1d1
+        padding-bottom: 1rem
+        margin-bottom: 2rem
+        margin-right: 1rem
+
+        .profileIcon
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            svg
+                font-size: 48px
+                margin-left: -5px
+
+        .profileInfo
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: flex-start
+            font-size: 21px
+
+    .myProfileNav
+        display: flex
+        flex-direction: column
+
+        a
+            font-size: 24px
+            text-transform: uppercase
+            padding: 1rem
+            margin-right: 1rem
+
+            &:hover
+                cursor: pointer
+                text-decoration: underline
+
+        .active
+            background-color: black
+            border-radius: 0.35rem
+
+            span
+                color: white

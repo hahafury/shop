@@ -10,30 +10,27 @@ import SmartphonesPage from './pages/smartphones';
 import SmartphonePage from './pages/smartphone';
 import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
-
-import * as smartphonesService from './api/services/smartphones';
+import ShoppingCartPage from './pages/shopping-cart';
+import MyProfile from './pages/my-profile';
 
 const App = () => {
-  const gets = async () => {
-    console.log('GET')
-    const {data} = await smartphonesService.get();
-    console.log(data);
-  };
-
-gets()
     return (
         <Router>
             <Header />
-              <Wrapper>
-                  <Routes>
-                      <Route exact path='/' element={<HomePage />} />
-                      <Route exact path='/smartphones/:brand' element={<SmartphonesPage />} />
-                      <Route exact path='/smartphone/:name' element={<SmartphonePage />} />
-                      <Route exact path='/login' element={<LoginPage />} />
-                      <Route exact path='/signup' element={<SignupPage/>} />
-                  </Routes>
-              </Wrapper>
-            <Footer/>
+            <Wrapper>
+                <Routes>
+                    <Route exact path='/' element={<HomePage />} />
+                    <Route exact  path='/smartphones/:brand' element={<SmartphonesPage />} />
+                    <Route exact path='/smartphone/:smartphoneId' element={<SmartphonePage />} />
+                    <Route exact path='/shopping-cart' element={<ShoppingCartPage />} />
+                    <Route exact path='/login' element={<LoginPage />} />
+                    <Route exact path='/signup' element={<SignupPage />} />
+                    <Route exact path='/my-profile' element={<MyProfile />} />
+                    <Route exact path='/my-profile/orders' element={<MyProfile />} />
+                    <Route exact path='/my-profile/profile' element={<MyProfile />} />
+                </Routes>
+            </Wrapper>
+            <Footer />
         </Router>
     );
 };

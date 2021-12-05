@@ -7,7 +7,7 @@ import {
     userError
 } from '../actions/user/action-creators';
 
-export function* get() {
+export function* getUser() {
     yield put(request())
     try {
         const { data } = yield userService.getRequest()

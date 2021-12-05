@@ -1,0 +1,95 @@
+.addToCartModal
+    min-height: 300px
+    height: fit-content
+    background-color: white
+    border-radius: 0.35rem
+    padding: 30px
+    display: flex
+    flex-direction: column
+    position: relative
+    overflow: hidden
+
+    .successMessage
+        margin-top: 90px
+        background-color: black
+
+        *
+            color: white!important
+
+    &:hover
+        cursor: default
+
+    button, input
+        height: 25px
+        text-align: center
+
+    input
+        width: 50px
+        font-weight: 600
+        position: relative
+        bottom: -6px
+
+    button
+        display: flex
+        width: fit-content
+        padding: 1rem
+        font-size: 18px
+        justify-content: center
+        align-items: center
+
+    .cartModalItem
+        display: flex
+        justify-content: space-between
+        height: fit-content
+        border: 1px solid #d3d1d1
+        padding: 1rem
+        border-radius: 0.35rem
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)
+
+        div
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            font-size: 18px
+            font-weight: bold
+            position: relative
+            min-width: 70px
+
+            label
+                position: absolute
+                top: 0rem
+
+        .cartModalItemInfo
+            text-transform: uppercase
+
+            .cartModalItemInfoSpecs
+                min-width: 400px
+                flex-direction: row
+                justify-content: center
+                align-items: center
+
+            span + span
+                margin-left: 0.3rem
+
+        .cartModalItemImage
+            img
+                height: 100px
+
+    .cartModalActions
+        display: flex
+        margin-top: 4rem
+        justify-content: space-between
+
+        .cartModalAmountItem
+            display: flex
+            * + *
+                margin-left: 0.5rem
+
+        .cartModalTotalCost
+            display: flex
+            justify-content: center
+            align-items: center
+            font-size: 24px
+            font-weight: 700
+            text-transform: uppercase

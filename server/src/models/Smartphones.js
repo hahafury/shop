@@ -23,24 +23,35 @@ module.exports = (sequelize, DataTypes) => {
         },
         processor: {
             type: DataTypes.STRING,
+            require: true
         },
         camera: {
             type: DataTypes.STRING,
+            require: true
         },
         operationSystem: {
             type: DataTypes.STRING,
+            require: true
         },
         images: {
-            type: DataTypes.ARRAY(DataTypes.STRING)
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            require: true
         },
         color: {
             type: DataTypes.STRING,
+            require: true
         },
         memory: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            require: true
         },
         rating: {
-            type: DataTypes.DOUBLE
+            type: DataTypes.DOUBLE,
+            require: true
+        },
+        price: {
+            type: DataTypes.DOUBLE,
+            require: true
         }
     },
     {
@@ -49,7 +60,11 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'Smartphones',
         underscored: true,
         tableName: 'smartphones',
-    });
+        });
+    
+    Smartphones.associate = (models) => {
+        Smartphones.hasMany(models.ShoppingCart, { foreignKey: 'smartphone_id' });
+    };
     
     return Smartphones;
 };

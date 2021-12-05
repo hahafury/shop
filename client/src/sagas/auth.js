@@ -14,6 +14,7 @@ export function* login(action) {
         yield put(authError(error));
     };
 };
+
 export function* signup(action) {
     yield put(request());
     try {
@@ -24,6 +25,7 @@ export function* signup(action) {
         yield put(authError(error));
     };
 };
+
 export function* refreshToken(action) {
     yield put(request());
     try {

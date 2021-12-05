@@ -11,7 +11,6 @@ module.exports.signup = async (data) => {
     
     if (!foundUser) {
         const newUser = await userRepository.create(data);
-        console.log(newUser.id)
         const accessToken = jwtSign(newUser);
         const refreshToken = jwtSign(newUser, true);
 

@@ -1,7 +1,13 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    COLOR_WHITE: 'white',
-    COLOR_PINK: '#ff99ff',
+    COLORS: {
+        'pink': '#ff99ff',
+        'white': 'white',
+        'midnight': '#181f27'
+    },
+
+    LOGO_COLOR_BLACK: 'black',
+    LOGO_COLOR_WHITE: 'white',
 
     COMPONENT_TYPE_INPUT: 'input',
 

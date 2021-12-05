@@ -1,0 +1,60 @@
+
+.shoppingCartItem + .shoppingCartItem
+    border-top: 1px solid #d3d1d1
+
+.shoppingCartItem
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 3rem 2rem
+    transition: 0.35s
+    border-radius: 0.35rem
+    position: relative
+    height: 250px
+
+    a
+        display: flex
+
+        div + div
+            margin-left: 2rem
+
+    &:hover
+        cursor: pointer
+        background-color: #ecebeb
+        transition: 0.35s
+
+    .shoppingCartItemInfo
+        min-width: 25%
+        text-transform: uppercase
+        font-weight: 600
+        margin-top: -5px
+
+        span + span
+            margin-left: 0.5rem
+
+    div
+        min-width: 100px
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+
+        label
+            position: absolute
+            top: -2rem
+            font-weight: 900
+
+    .shoppingCartItemImage
+        img
+            height: 150px
+
+    .deleteItem
+        position: absolute
+        right: 25px
+        top: 15px
+        border-radius: 0.35rem
+        transition: 0.35s
+
+        &:hover
+            background-color: #cecece
+            transition: 0.35s

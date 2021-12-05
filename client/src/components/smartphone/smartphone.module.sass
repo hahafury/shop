@@ -1,7 +1,7 @@
 .smartphone
     display: flex
     flex-direction: column
-    width: 70%
+    width: 100%
     .phoneHeader
 
     .phoneMain
@@ -17,6 +17,12 @@
         .phoneBriefSpecs
             width: 860px
             font-size: 18px
+
+            *
+                margin-right: 0.5rem
+
+            * + *
+                margin-left: 0.5rem
 
         .phoneSpecsSection + .phoneSpecsSection
             margin-top: 1rem

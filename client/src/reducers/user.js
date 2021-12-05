@@ -15,7 +15,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: true,
                 error: null,
-            }
+            };
         }
         case USER_ACTIONS.ACTION_GET_USER_SUCCESS: {
             return {
@@ -23,17 +23,17 @@ const userReducer = (state = initialState, action) => {
                 isFetching: false,
                 error: null,
                 userData: action.userData,
-            }
+            };
         }
         case USER_ACTIONS.ACTION_USER_ERROR: {
             return {
                 ...state,
                 isFetching: false,
                 error: action.error
-            }
+            };
         }
         default:
-            return initialState
+            return state;
     };
 };
 export default userReducer;
