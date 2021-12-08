@@ -8,6 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     login: {
         type: DataTypes.STRING,
         require: true,
+      },
+    name: {
+        type: DataTypes.STRING,
+        require: true,
+    },
+    surname: {
+        type: DataTypes.STRING,
+        require: true,
     },
     password: {
         type: DataTypes.STRING,
@@ -23,9 +31,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     city: {
         type: DataTypes.STRING,
+        require: true
     },
     refreshToken: {
         type: DataTypes.STRING,
+        require: true
+      },
+    role: {
+        type: DataTypes.STRING,
+        require: true
     }
   },
   {

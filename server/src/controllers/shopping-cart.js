@@ -1,6 +1,6 @@
 const ServerError = require('../errors/server-error');
 const shoppingCartService = require('../services/shopping-cart');
-const shoppingCartRepository = require('../repositories/shopping-cart-repository');
+const shoppingCartRepository = require('../repositories/shopping-cart');
 
 module.exports.add = async (req, res, next) => {
     try {

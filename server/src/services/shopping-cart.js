@@ -1,6 +1,5 @@
-const TokenError = require('../errors/token-error');
-const ServerError = require('../errors/server-error');
-const shoppingCartRepository = require('../repositories/shopping-cart-repository');
+const shoppingCartRepository = require('../repositories/shopping-cart');
+const smartphonesRepository = require('../repositories/smartphones');
 
 module.exports.add = async (smartphoneData, userId) => {
     const smartphone = await shoppingCartRepository.getOne(smartphoneData.id, userId);
@@ -14,7 +13,12 @@ module.exports.add = async (smartphoneData, userId) => {
         });
         return updatedItem;
     } else {
-        return shoppingCartRepository.add(smartphoneData, userId);
+        const addedItem = await shoppingCartRepository.add(smartphoneData, userId);
+        const addedItemInfo = await smartphonesRepository.get(addedItem.smartphoneId);
+
+        addedItem.dataValues.Smartphone = addedItemInfo.dataValues;
+        
+        return addedItem;
     };
 };
   

@@ -11,7 +11,8 @@ module.exports.create = userData => {
         login: userData.login,
         password: userData.password,
         email: userData.email,
-        phone: userData.phone
+        phone: userData.phone,
+        role: 'USER'
     });
 };
 

@@ -7,8 +7,8 @@ import toUppercaseFirstLetter from '../helpers/to-uppercase-first-letter';
 export function* getSmartphones(action) {
     yield put(request());
     try {
-        const { data } = yield smartphonesService.getSmartphones(toUppercaseFirstLetter(action.brand));
-        console.log(data)
+        console.log(action)
+        const { data } = yield smartphonesService.getSmartphones(toUppercaseFirstLetter(action.brand), action.filter);
         yield put(getSmartphonesSuccess(data));
     } catch (error) {
         console.log(error)

@@ -4,7 +4,7 @@ import configureStore from './configure-store';
 import App from '../App';
 
 const Setup = () => {
-    const [store, setStore] = useState(configureStore());
+    const [store, setStore] = useState(configureStore);
 
     return (
         <Provider store={store}>

@@ -4,6 +4,7 @@ import AUTH_ACTIONS from '../actions/auth/actions';
 import USER_ACTIONS from '../actions/user/actions';
 import SMARTPHONES_ACTIONS from '../actions/smartphones/actions';
 import SHOPPING_CART_ACTIONS from '../actions/shopping-cart/actions';
+import ORDERS_ACTIONS from '../actions/orders/actions';
 
 import {
     login,
@@ -19,11 +20,18 @@ import {
     getSmartphones,
     getSmartphone
 } from './smartphones';
+
 import {
     addToShoppingCart,
     getShoppingCart,
     deleteItem
 } from './shopping-cart';
+
+import {
+    confirmOrder,
+    getOrders,
+    changeOrderStatus,
+} from './orders';
 
 function* rootSaga() {
     yield takeLatest(AUTH_ACTIONS.ACTION_LOGIN, login);
@@ -34,6 +42,9 @@ function* rootSaga() {
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_ADD, addToShoppingCart);
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_GET, getShoppingCart);
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_DELETE_ITEM, deleteItem);
+    yield takeEvery(ORDERS_ACTIONS.ACTION_CONFIRM_ORDER, confirmOrder);
+    yield takeEvery(ORDERS_ACTIONS.ACTION_GET_ORDERS, getOrders);
+    yield takeEvery(ORDERS_ACTIONS.ACTION_CHANGE_ORDER_STATUS, changeOrderStatus);
 };
 
 export default rootSaga;

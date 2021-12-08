@@ -11,7 +11,6 @@ export function* getUser() {
     yield put(request())
     try {
         const { data } = yield userService.getRequest()
-        console.log(data)
         yield put(getUserSuccess(data))
     } catch (error) {
         yield put(userError(error))

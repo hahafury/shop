@@ -25,7 +25,7 @@ const Navigation = ({ isMenuActive, onOpeningNavigation }) => {
             </Link>
             {
                 userData && (
-                    <Link to='/my-profile' onClick={onClickNavigationLink}>
+                    <Link to='/my-profile/orders' onClick={onClickNavigationLink}>
                         <h2>My profile</h2>
                     </Link>
                 )

@@ -3,14 +3,9 @@ const smartphonesRepository = require('../repositories/smartphones');
 
 module.exports.getAll = async (req, res, next) => {
     try {
-        const smartphones = await smartphonesRepository.getAll(req.params);
-        const maxSmartphonesPrice = await smartphonesRepository.maxPrice(req.params);
-        const minSmartphonesPrice = await smartphonesRepository.minPrice(req.params);
-        res.status(200).send(Object.assign({}, {
-            smartphones: smartphones,
-            maxPrice: maxSmartphonesPrice,
-            minPrice: minSmartphonesPrice
-        }));
+        res.status(200).send(
+            await smartphonesRepository.getAll(req.params, req.query)
+        );
     } catch (error) {
         next(new ServerError(error));
     };

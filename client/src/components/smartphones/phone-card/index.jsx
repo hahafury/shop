@@ -2,10 +2,7 @@ import React from 'react';
 import styles from './phone-card.module.sass';
 import { Link } from 'react-router-dom';
 
-import Button from '../../app/form/button';
-import PhoneRating from '../../phone-rating';
-
-const PhoneCard = ({ id, images, brand, model }) => {
+const PhoneCard = ({ id, images, brand, model, price }) => {
     return (
         <div className={styles.phoneCard}>
             <Link to={`/smartphone/${id}`}>
@@ -20,17 +17,10 @@ const PhoneCard = ({ id, images, brand, model }) => {
                         in stock
                     </div>
                     <div className={styles.phoneCardPrice}>
-                        649$
-                    </div>
-                    <div className={styles.phoneCardRating}>
-                        <PhoneRating rating={4}/>
+                        {price}$
                     </div>
                 </div>
             </Link>
-                <Button
-                    text={'Buy'}
-                    onClick={() => console.log(`1`)}
-                />
         </div>
        
        

@@ -22,7 +22,7 @@ const Form = ({children, values, onSubmitForm, formValidationSchema}) => {
                                         ...child,
                                         props: {
                                             ...child.props,
-                                            value: formik.values[child.props],
+                                            value: formik.values[child.props.name],
                                             onChange: formik.handleChange,
                                             touched: formik.touched[child.props.name],
                                             errors: formik.errors[child.props.name]

@@ -6,13 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 import CheckIcon from '@mui/icons-material/Check';
 import Button from '../../app/form/button';
-import PhoneRating from '../../phone-rating';
 
 const BuyContainer = ({
     id,
     color,
     memory,
-    rating,
     price,
     setOverlayData,
     userData
@@ -23,6 +21,7 @@ const BuyContainer = ({
         if(userData) setOverlayData({ isAppOverlayOpened: true })
         else navigation('/login')
     };
+    
     return (
         <div className={styles.buyContainer}>
             <div className={styles.buyContainerSection}>
@@ -35,10 +34,6 @@ const BuyContainer = ({
             <div className={styles.buyContainerSection}>
                 <h4 className={styles.inStock}>In stock<CheckIcon sx={{ color: green }}/></h4>
             </div>
-            <div className={styles.buyContainerSection}>
-                <PhoneRating rating={rating} />
-            </div>
-            
             <div className={styles.buyContainerSection}>
                 <h2>{price}$</h2>
                 <Button text='Buy' onClick={onBuy}/>

@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
             require: true
         },
         memory: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             require: true
         },
         rating: {
@@ -65,6 +65,14 @@ module.exports = (sequelize, DataTypes) => {
     Smartphones.associate = (models) => {
         Smartphones.hasMany(models.ShoppingCart, { foreignKey: 'smartphone_id' });
     };
+
+    Smartphones.associate = (models) => {
+        Smartphones.belongsToMany(models.Orders, {
+            through: 'orders_smartphones',
+            foreignKey: 'smartphone_id'
+        });
+    };
+
     
     return Smartphones;
 };

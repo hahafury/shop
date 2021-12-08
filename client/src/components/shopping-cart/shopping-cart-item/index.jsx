@@ -10,17 +10,18 @@ const ShoppingCartItem = ({
     Smartphone,
     id,
     amount,
-    smartphone_id
+    smartphoneId,
+    isOrder
 }) => {
     const dispatch = useDispatch();
-    console.log(1)
+
     const onDeleteItem = () => {
         dispatch(deleteItem(id));
     };
-    
+
     return (
         <div className={styles.shoppingCartItem}>
-            <Link to={`/smartphone/${smartphone_id}`}>
+            <Link to={`/smartphone/${smartphoneId}`}>
                 <div className={styles.shoppingCartItemImage}>
                     <img src={Smartphone.images && Smartphone.images[0]}alt = 'shoppingCartImage'/>
                 </div>
@@ -38,16 +39,20 @@ const ShoppingCartItem = ({
             </div>
             <div className={styles.shoppingCartItemPrice}>
                 <label>Price</label>
-                <span>{Smartphone.price}</span>
+                <span>{Smartphone.price} $</span>
             </div>
             <div className={styles.shoppingCartItemTotalPrice}>
                 <label>Total price</label>
                 <span>{Smartphone.price * amount}$</span>
             </div>
-            <ClearIcon
-                className={styles.deleteItem}
-                onClick={onDeleteItem}
-            />
+            {
+                !isOrder && (
+                    <ClearIcon
+                        className={styles.deleteItem}
+                        onClick={onDeleteItem}
+                    />
+                )
+            }
         </div>
     );
 };

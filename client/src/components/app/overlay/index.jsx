@@ -14,6 +14,7 @@ const AppOverlay = ({isAppOverlayOpened, setOverlayData, Component, componentPro
         } else {
             document.body.style.overflowY = 'auto';
         }
+        return onCloseOverlay();
     }, [isAppOverlayOpened, onCloseOverlay])
     
     return (

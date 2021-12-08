@@ -5,3 +5,17 @@
     flex-wrap: wrap
     padding: 30px
     position: relative
+    min-height: 1250px
+    .showSmartphones-enter
+        opacity: 0
+
+    .showSmartphones-enter-active
+        opacity: 1
+        transition: opacity 1000ms
+
+    .showSmartphones-exit
+        opacity: 1
+
+        &-active
+            opacity: 0
+            transition: opacity 1000ms

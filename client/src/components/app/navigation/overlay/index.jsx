@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './overlay.module.sass';
 
 const Overlay = ({ isOverlayOpened, onClosingOverlay }) => {

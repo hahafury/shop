@@ -5,9 +5,10 @@ export const request = () => ({
     type: SMARTPHONES_ACTIONS.ACTION_SMARTPHONES_REQUEST
 });
 
-export const getSmartphones = brand => ({
+export const getSmartphones = (brand, filter) => ({
     type: SMARTPHONES_ACTIONS.ACTION_GET_SMARTPHONES,
-    brand: brand
+    brand: brand,
+    filter: filter
 });
 
 export const getSmartphonesSuccess = smartphones => ({

@@ -1,15 +1,15 @@
 const hashPass = require('../middlewares/hash-pass');
-const auth = require('../controllers/auth');
+const authController = require('../controllers/auth');
 
 module.exports = (router) => {
     router.post(
         '/signup',
         hashPass,
-        auth.registration
+        authController.registration
     );
 
     router.post(
         '/login',
-        auth.login
+        authController.login
     );
 };

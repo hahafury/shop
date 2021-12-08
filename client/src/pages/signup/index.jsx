@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './signup.module.sass';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Form from '../../components/app/form';
 import Input from '../../components/app/form/input';
@@ -13,10 +13,13 @@ import validationSchemas from '../../validator';
 import Error from '../../components/app/error';
 
 const SignupPage = () => {
+    const { isLoggedIn } = useSelector(state => state.authStore);
+    
+    const navigate = useNavigate()
+    
     useEffect(() => {
-        window.scrollTo(0, 0);
-
-        return dispatch(authClearError())
+        isLoggedIn ? navigate('/') : window.scrollTo(0, 0);
+        return dispatch(authClearError());
     }, []);
 
     const {

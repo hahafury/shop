@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './shopping-cart.module.sass';
 import { useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 
 import ShoppingCartItem from '../../components/shopping-cart/shopping-cart-item';
 import Button from '../../components/app/form/button';
 import Loading from '../../components/app/loading';
 
+
 const ShoppingCart = () => {
     const { shoppingCart, isFetching } = useSelector(state => state.shoppingCartStore);
 
-    const calcToPay = () => { 
-        const reducer = (sum, currentItem) => sum + currentItem.amount * currentItem.Smartphone.price
-        return shoppingCart.reduce(reducer, 0)
-    }
+    const calcToPay = () => {
+        const reducer = (sum, currentItem) => sum + currentItem.amount * currentItem.Smartphone.price;
+        return shoppingCart.reduce(reducer, 0);
+    };
+
+    const navigate = useNavigate();
 
     return (
         <div className={styles.shoppingCartPage}>
@@ -28,7 +31,6 @@ const ShoppingCart = () => {
                     </div>
                 ) : null
             }
-            
             {
                 !isFetching && shoppingCart && !shoppingCart.length && <h2>Items not found</h2>
             }
@@ -39,7 +41,7 @@ const ShoppingCart = () => {
                             To pay: {shoppingCart && shoppingCart.length > 0 && calcToPay()}$
                         </div>
                         <div className={styles.confirmOffer}>
-                            <Button text='Make an order' />
+                            <Button text='Make an order' onClick={() => navigate('/checkout')}/>
                         </div>
                     </div>
                 ) : null

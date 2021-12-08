@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import MostPopularItems from '../../components/most-popular-items';
-import NewArrivals from '../../components/new-arrivals';
 import styles from './home.module.sass';
+
+import NewArrivals from '../../components/new-arrivals';
 
 const HomePage = () => {
     useEffect(() => {
@@ -11,7 +11,6 @@ const HomePage = () => {
     return (
         <div className={styles.homePage}>
             <NewArrivals />
-            <MostPopularItems />
         </div>
     );
 };

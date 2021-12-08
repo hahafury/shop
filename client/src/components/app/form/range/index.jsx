@@ -3,13 +3,18 @@ import styles from './range.module.sass';
 import Slider from '@mui/material/Slider';
 
 
-const Range = ({ maxRange, minRange, rangeLabel }) => {
+const Range = ({ maxRange, minRange, rangeLabel, onChange, ...props}) => {
     const [price, setPrice] = useState(0);
     
     const rangeRef = useRef(null);
 
     const onPriceChange = () => {
-        rangeRef.current.innerText && rangeRef.current.innerText !== price && setPrice(rangeRef.current.innerText);
+        rangeRef.current.innerText && rangeRef.current.innerText !== price && changePrice()
+    };
+
+    const changePrice = () => {
+        setPrice(rangeRef.current.innerText);
+        onChange('price', rangeRef.current.innerText);
     };
 
     useEffect(() => {
@@ -28,6 +33,7 @@ const Range = ({ maxRange, minRange, rangeLabel }) => {
                     min={minRange}
                     valueLabelDisplay="auto"
                     onMouseUp={onPriceChange}
+                    {...props}
                 />
             </div>
             

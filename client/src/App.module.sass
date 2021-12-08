@@ -6,6 +6,9 @@
   font-family: 'Poppins', sans-serif
   color: black
 
+.notificationBody
+  width: 2000px
+
 button, input, a
   transition: 0.35s
 
@@ -18,6 +21,19 @@ a
   &:hover
     color: #ac0202
     transition: 0.35s
+
+body::-webkit-scrollbar
+  width: 10px
+  height: 8px
+
+body::-webkit-scrollbar-thumb
+  background-color: grey
+  border-radius: 5px
+
+body::-webkit-scrollbar-track
+  background-color: #eeeaea
+  border-radius: 5px
+  margin-left: 200px
 
 html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
   margin: 0

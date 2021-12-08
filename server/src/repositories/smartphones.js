@@ -1,27 +1,32 @@
 const db = require('../models');
+const Op = db.Sequelize.Op;
 
-module.exports.getAll = (brand, params) => {
+module.exports.getAll = (brand, query) => {
+    const predicate = Object.keys(query).length !== 0 ? {
+        ...brand,
+        [Op.and]: {
+           color: {
+                [Op.or]: query.color.split(',').map(color => ({
+                    [Op.like]: color.length > 0 ? color : '%' + color + '%'
+                }))
+            },
+            model: {
+                [Op.or]: query.model.split(',').map(model => ({
+                    [Op.like]: model.length > 0 ? model : '%' + model + '%'
+                }))
+            },
+            memory: {
+                [Op.or]: query.memory.split(',').map(memory => ({
+                    [Op.like]: memory.length > 0 ? memory : '%' + memory + '%'
+                }))
+            }
+        }
+    } : {
+        ...brand
+    }
+
     return db.Smartphones.findAll({
-        where: brand,
-        attributes: [
-            'id',
-            'brand', 
-            'model',
-            'images',
-            'rating',
-        ]
-    });
-};
-
-module.exports.maxPrice = (brand, params) => {
-    return db.Smartphones.max('price', {
-        where: brand
-    });
-};
-
-module.exports.minPrice = (brand, params) => {
-    return db.Smartphones.min('price', {
-        where: brand
+        where: predicate,
     });
 };
 
