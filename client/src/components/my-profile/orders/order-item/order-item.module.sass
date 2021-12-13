@@ -5,6 +5,7 @@
 
     .adminActions
         padding: 2rem
+        min-height: 114px
 
         .confirmOrderButton
             &:hover
@@ -124,3 +125,10 @@
 button
     &:disabled
         background-color: grey
+
+@media (max-width: 1024px)
+    .orderBuyingInfo
+        flex-direction: column
+
+    .orderBuyingInfo > div + div
+        margin-top: 2rem

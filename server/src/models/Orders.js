@@ -62,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Orders.associate = (models) => {
         Orders.belongsToMany(models.Smartphones, {
-            through: 'orders_smartphones',
+            through: models.OrdersSmartphones,
             foreignKey: 'order_id'
         });
     };

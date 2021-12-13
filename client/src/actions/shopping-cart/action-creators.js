@@ -34,6 +34,10 @@ export const deleteItemSuccess = shoppingCart => ({
     shoppingCart: shoppingCart
 });
 
+export const clearShoppingCart = () => ({
+    type: SHOPPING_CART_ACTIONS.ACTION_CLEAR_SHOPPING_CART
+})
+
 export const clearShoppingCartMessageAndError = () => ({
     type: SHOPPING_CART_ACTIONS.ACTION_CLEAR_SHOPPING_CART_MESSAGE_AND_ERROR
 });

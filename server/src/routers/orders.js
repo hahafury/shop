@@ -7,13 +7,11 @@ module.exports = (router) => {
         checkToken,
         ordersController.create
     );
-
     router.get(
         '/orders',
         checkToken,
         ordersController.getAll
     );
-
     router.patch(
         '/orders/:id',
         checkToken,

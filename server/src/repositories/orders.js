@@ -19,7 +19,7 @@ module.exports.getAll = (userId, id) => {
     return db.Orders.findAll({
         where,
         include: {
-            model: db.Smartphones,
+            model: db.Smartphones
         },
         order: [['id', 'desc']]
     });
@@ -29,7 +29,10 @@ module.exports.get = predicate => {
     return db.Orders.findOne({
         where: predicate,
         include: {
-            model: db.Smartphones
+            model: db.Smartphones,
+            through: {
+                model: db.OrdersSmartphones
+            }
         }
     });
 };

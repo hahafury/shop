@@ -48,6 +48,12 @@ const userReducer = (state = initialState, action) => {
                 shoppingCart: action.shoppingCart
             };
         }
+        case SHOPPING_CART_ACTIONS.ACTION_CLEAR_SHOPPING_CART: {
+            return {
+                ...state,
+                shoppingCart: []
+            };
+        }
         default:
             return state;
     };

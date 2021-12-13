@@ -26,6 +26,11 @@ export const getSmartphoneSuccess = smartphone => ({
     smartphone: smartphone
 });
 
+export const createSmartphone = smartphoneData => ({
+    type: SMARTPHONES_ACTIONS.ACTION_CREATE_SMARTPHONE,
+    smartphoneData: smartphoneData
+});
+
 export const clearSmartphone = () => ({
     type: SMARTPHONES_ACTIONS.ACTION_CLEAR_SMARTPHONE
 });

@@ -4,8 +4,9 @@ const ordersRepository = require('../repositories/orders');
 
 module.exports.create = async (req, res, next) => {
     try {
-        await ordersService.create(req.body, req.user);
-        res.sendStatus(200);
+        res.status(200).send(
+            await ordersService.create(req.body, req.user)
+        );
     } catch (error) {
         next(new ServerError(error));
     };

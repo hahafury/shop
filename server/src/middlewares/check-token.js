@@ -4,7 +4,7 @@ const getUserData = require('../helpers/get-user-data');
 
 module.exports = async (req, res, next) => {
     if (!req.headers.authorization) {
-        return next(new TokenError('Need token'))
+        return next(new TokenError('Need token'));
     }
     try {
         const token = JSON.parse(req.headers.authorization);
@@ -13,4 +13,4 @@ module.exports = async (req, res, next) => {
     } catch (error) {
         next(new ServerError(error))
     };
-}
+};

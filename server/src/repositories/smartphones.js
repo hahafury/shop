@@ -30,23 +30,12 @@ module.exports.getAll = (brand, query) => {
     });
 };
 
-module.exports.get = (smartphoneId) => {
+module.exports.get = (predicate) => {
     return db.Smartphones.findOne({
-        where: smartphoneId
-    });
-};
-
-module.exports.create = userData => {
-    return db.Users.create({
-        login: userData.login,
-        password: userData.password,
-        email: userData.email,
-        phone: userData.phone
-    });
-};
-
-module.exports.update = (updatedData, predicate) => {
-    return db.Users.update(updatedData, {
         where: predicate
     });
+};
+
+module.exports.create = data => {
+    return db.Smartphones.create(data);
 };

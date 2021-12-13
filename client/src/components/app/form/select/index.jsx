@@ -5,7 +5,7 @@ const Select = ({ options, ...props }) => {
     return (
         <select {...props}>
             {options && options.map(option => {
-                return <option value={option} label={option}/>
+                return <option value={option} key={option} label={option}/>
             })}
         </select>
     );

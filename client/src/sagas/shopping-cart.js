@@ -1,7 +1,10 @@
 import { put, select } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import * as shoppingCartService from '../api/services/shopping-cart';
 import { request, addToShoppingCartSuccess, getShoppingCartSuccess, deleteItemSuccess } from '../actions/shopping-cart/action-creators';
+
+import Notification from '../components/app/notification';
 
 export function* addToShoppingCart(action) {
     yield put(request());
@@ -16,7 +19,7 @@ export function* addToShoppingCart(action) {
         index > -1 ? shoppingCartItems[index].amount += action.smartphoneData.amount : shoppingCartItems.push(data)
         yield put(addToShoppingCartSuccess(shoppingCartItems, 'product has been successfully added to the cart'));
     } catch (error) {
-        console.log(error)
+        yield toast.error(<Notification message={error.response.statusText} />)
     };
 };
 
@@ -26,7 +29,7 @@ export function* getShoppingCart() {
         const { data } = yield shoppingCartService.getShoppingCart();
         yield put(getShoppingCartSuccess(data));
     } catch (error) {
-        console.log(error)
+        yield toast.error(<Notification message={error.response.statusText} />)
     };
 };
 

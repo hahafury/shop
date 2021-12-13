@@ -60,3 +60,23 @@
         &:hover
             background-color: #cecece
             transition: 0.35s
+
+@media (max-width: 1024px)
+    .shoppingCartItem
+        flex-direction: column
+        height: 500px
+
+        font-size: 14px
+
+        a
+            flex-direction: column
+
+            .shoppingCartItemImage
+                margin-bottom: 2rem
+
+            .shoppingCartItemInfo
+                font-size: 13px
+                margin-left: 0
+
+    .shoppingCartItem > *
+        margin-top: 1rem

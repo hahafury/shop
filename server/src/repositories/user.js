@@ -8,10 +8,7 @@ module.exports.get = predicate => {
 
 module.exports.create = userData => {
     return db.Users.create({
-        login: userData.login,
-        password: userData.password,
-        email: userData.email,
-        phone: userData.phone,
+        ...userData,
         role: 'USER'
     });
 };

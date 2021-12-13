@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './smartphone.module.sass';
 import { useDispatch } from 'react-redux';
 
+import CONSTANTS from '../../constants';
 import { clearShoppingCartMessageAndError } from '../../actions/shopping-cart/action-creators';
 
 import AppOverlay from '../app/overlay';
@@ -60,7 +61,7 @@ const Smartphone = ({
                     <span>{processor}</span>/
                     <span>{camera}</span>/
                     <span>{color}</span>/
-                    <span>{memory}</span>/
+                    <span>{memory} GB</span>/
                     <span>{cellular}</span>/
                     <span>{operationSystem}</span>/
                 </div>
@@ -97,7 +98,7 @@ const Smartphone = ({
                 setOverlayData={setOverlayData}
                 componentProps={{
                     id: id,
-                    image: images[0],
+                    image: `${CONSTANTS.PUBLIC_URL}${images[0]}`,
                     brand: brand,
                     model: model,
                     color: color,

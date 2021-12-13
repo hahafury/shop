@@ -25,8 +25,8 @@ export const authError = error => ({
 
 export const authSuccess = () => ({
     type: AUTH_ACTIONS.ACTION_AUTH_SUCCESS
-})
+});
 
 export const authClearError = () => ({
     type: AUTH_ACTIONS.ACTION_AUTH_CLEAR_ERROR
-})
+});

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './order-item.module.sass';
 import moment from 'moment';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Collapse } from '@mui/material';
 
@@ -68,41 +68,44 @@ const OrderItem = ({id, createdAt, Smartphones, city, name, surname, email, phon
                             <span><b>TO PAY: </b> {price}$</span>
                         </div>
                     </div>
-                    {
-                        userRole === CONSTANTS.ROLE_ADMIN && status !== 'completed' && status !== 'declined' && (
-                            <div className={styles.adminActions}>
-                                {
-                                    status === CONSTANTS.ORDER_STATUS_NEW && (
-                                        <Button
-                                            className={styles.confirmOrderButton}
-                                            text='confirm'
-                                            onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_CONFIRMED)}
-                                            disabled={isFetching}
-                                        />
-                                    )
-                                }
-                                {
-                                    status === CONSTANTS.ORDER_STATUS_CONFIRMED && (
-                                        <Button
-                                            className={styles.completeOrderButton}
-                                            text='complete'
-                                            onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_COMPLETED)}
-                                            disabled={isFetching}
-                                        />
-                                    )
-                                }
-                                {
-                                    status !== CONSTANTS.ORDER_STATUS_DECLINED && status !== CONSTANTS.ORDER_STATUS_COMPLETED && (
-                                        <Button
-                                            text='decline'
-                                            onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_DECLINED)}
-                                            disabled={isFetching}
-                                        />
-                                    )
-                                }
-                            </div> 
-                        )
-                    }
+                    <div className={styles.adminActions}>
+                       {
+                            userRole === CONSTANTS.ROLE_ADMIN && status !== 'completed' && status !== 'declined' && !isFetching && (
+                                <React.Fragment>
+                                    {
+                                        status === CONSTANTS.ORDER_STATUS_NEW && (
+                                            <Button
+                                                className={styles.confirmOrderButton}
+                                                text='confirm'
+                                                onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_CONFIRMED)}
+                                                disabled={isFetching}
+                                            />
+                                        )
+                                    }
+                                    {
+                                        status === CONSTANTS.ORDER_STATUS_CONFIRMED && (
+                                            <Button
+                                                className={styles.completeOrderButton}
+                                                text='complete'
+                                                onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_COMPLETED)}
+                                                disabled={isFetching}
+                                            />
+                                        )
+                                    }
+                                    {
+                                        status !== CONSTANTS.ORDER_STATUS_DECLINED && status !== CONSTANTS.ORDER_STATUS_COMPLETED && (
+                                            <Button
+                                                text='decline'
+                                                onClick={() => changeOrderStatus(CONSTANTS.ORDER_STATUS_DECLINED)}
+                                                disabled={isFetching}
+                                            />
+                                        )
+                                    }
+                                </React.Fragment>
+                            )
+                        } 
+                        <Loading isLoading={isFetching}/>
+                    </div>
                 </Collapse>  
             </div>
         </React.Fragment>

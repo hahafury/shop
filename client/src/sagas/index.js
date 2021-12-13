@@ -18,7 +18,8 @@ import {
 
 import {
     getSmartphones,
-    getSmartphone
+    getSmartphone,
+    createSmartphone
 } from './smartphones';
 
 import {
@@ -39,6 +40,7 @@ function* rootSaga() {
     yield takeLeading(USER_ACTIONS.ACTION_GET_USER, getUser);
     yield takeEvery(SMARTPHONES_ACTIONS.ACTION_GET_SMARTPHONES, getSmartphones);
     yield takeLeading(SMARTPHONES_ACTIONS.ACTION_GET_SMARTPHONE, getSmartphone);
+    yield takeEvery(SMARTPHONES_ACTIONS.ACTION_CREATE_SMARTPHONE, createSmartphone)
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_ADD, addToShoppingCart);
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_GET, getShoppingCart);
     yield takeLeading(SHOPPING_CART_ACTIONS.ACTION_SHOPPING_CART_DELETE_ITEM, deleteItem);

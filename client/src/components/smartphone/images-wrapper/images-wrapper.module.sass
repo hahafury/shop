@@ -32,3 +32,21 @@
 
             height: 500px
             object-fit: contain
+
+@media ( max-width: 1024px )
+    .imagesWrapper
+        flex-direction: column
+
+        .imagePreviews
+            flex-direction: row
+            order: 2
+            height: auto
+
+            img + img
+                margin: 0
+
+        .currentImage
+            margin: 0
+            justify-content: flex-start
+            img
+                width: 300px

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styles from './images-wrapper.module.sass';
 
+import CONSTANTS from '../../../constants';
+
 const ImagesWrapper = ({ images }) => {
-    const [currentImage, setCurrentImage] = useState(images ? images[0] : null);
+    const [currentImage, setCurrentImage] = useState(images ? CONSTANTS.PUBLIC_URL + images[0] : null);
 
     const onMouseOverImage = (image) => {
         currentImage !== image && setCurrentImage(image);
@@ -15,9 +17,9 @@ const ImagesWrapper = ({ images }) => {
                     images.map(image => {
                         return <img
                             key={image}
-                            src={image}
+                            src={CONSTANTS.PUBLIC_URL + image}
                             alt='phone'
-                            onMouseOver={() => onMouseOverImage(image)}
+                            onMouseOver={() => onMouseOverImage(CONSTANTS.PUBLIC_URL + image)}
                         />
                     })
                 }

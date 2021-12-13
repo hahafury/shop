@@ -36,40 +36,10 @@ const Catalog = ({ items, isCollapse, onClickNavigationLink }) => {
                         <span>OnePlus</span>
                     </Link>
                      <Link
-                        to='/smartphones/oppo'
+                        to='/smartphones/Oppo'
                         onClick={onClickNavigationLink}
                     >
                         <span>Oppo</span>
-                    </Link>
-                     <Link
-                        to='/smartphones/poco'
-                        onClick={onClickNavigationLink}
-                    >
-                        <span>Poco</span>
-                    </Link>
-                     <Link
-                        to='/smartphones/realme'
-                        onClick={onClickNavigationLink}
-                    >
-                        <span>Realme</span>
-                    </Link>
-                    <Link
-                        to='/smartphones/samsung'
-                        onClick={onClickNavigationLink}
-                    >
-                        <span>Samsung</span>
-                    </Link>
-                    <Link
-                        to='/smartphones/xiaomi'
-                        onClick={onClickNavigationLink}
-                    >
-                        <span>Xiaomi</span>
-                    </Link>
-                    <Link
-                        to='/smartphones/vivo'
-                        onClick={onClickNavigationLink}
-                    >
-                        <span>Vivo</span>
                     </Link>
                 </div>
             </Collapse>

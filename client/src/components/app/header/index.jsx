@@ -51,9 +51,9 @@ const Header = () => {
                                 <Link to = '/shopping-cart'>
                                     <CartIcon />
                                 </Link>
-                                {/* <div className={styles.logoutLink} onClick={onLogout}>
+                                <div className={styles.logoutLink} onClick={onLogout}>
                                     <h2 >Logout</h2>
-                                </div> */}
+                                </div>
                             </React.Fragment>
                         ) : (
                             <Link className={styles.loginLink} to='/login'>

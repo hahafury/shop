@@ -29,7 +29,36 @@ const validationSchemas = {
             .required('required'),
         phone: yup.string()
             .test('check-password', 'invalid phone number', value => value && isValidPhone(value))
-            .required('required') 
+            .required('required'),
+        name: yup.string()
+            .required('required'),
+        surname: yup.string()
+            .required('required'),
+        city: yup.string()
+            .required('required'),
+    }),
+    CreateSmartphoneSchema: yup.object().shape({
+        brand: yup.string().required('required'),
+        model: yup.string().required('required'),
+        display: yup.string().required('required'),
+        cellular: yup.string().required('required'),
+        processor: yup.string().required('required'),
+        camera: yup.string().required('required'),
+        operationSystem: yup.string().required('required'),
+        color: yup.string().required('required'),
+        memory: yup.string().required('required'),
+        price: yup.string().required('required'),
+        images: yup.array().length(5).required('required')
+    }),
+    ConfirmOfferSchema: yup.object().shape({
+        name: yup.string().required('required'),
+        surname: yup.string().required('required'),
+        email: yup.string().required('required'),
+        phone: yup.string().required('required'),
+        city: yup.string().required('required'),
+        delivery: yup.string().required('required'),
+        postOffice: yup.string().required('required'),
+        price: yup.string().required('required')
     })
 };
 

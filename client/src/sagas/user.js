@@ -8,11 +8,11 @@ import {
 } from '../actions/user/action-creators';
 
 export function* getUser() {
-    yield put(request())
+    yield put(request());
     try {
-        const { data } = yield userService.getRequest()
-        yield put(getUserSuccess(data))
+        const { data } = yield userService.getRequest();
+        yield put(getUserSuccess(data));
     } catch (error) {
         yield put(userError(error))
-    }
-}
+    };
+};

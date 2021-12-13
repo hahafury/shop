@@ -40,7 +40,15 @@ const SignupPage = () => {
     return (
         <div className={styles.signupPage}>
             <Loading isLoading={isFetching} />
-
+            {
+                error && (
+                    <Error
+                        data={error.data}
+                        status={error.status}
+                        clearError={clearAuthErrors}
+                    />
+                )
+            }
             <Form
                 values={{
                     login: '',
@@ -48,7 +56,10 @@ const SignupPage = () => {
                     confirmPassword: '',
                     email: '',
                     confirmEmail: '',
-                    phone: ''
+                    phone: '',
+                    name: '',
+                    surname: '',
+                    city: ''
                 }}
                 onSubmitForm={onSignup}
                 formValidationSchema={validationSchemas.SignupSchema}
@@ -82,9 +93,24 @@ const SignupPage = () => {
                     name='confirmEmail'
                 />
                 <Input
+                    placeholder='Name'
+                    id='name'
+                    name='name'
+                />
+                <Input
+                    placeholder='Surname'
+                    id='surname'
+                    name='surname'
+                />
+                <Input
                     placeholder='Phone'
                     id='phone'
                     name='phone'
+                />
+                <Input
+                    placeholder='City'
+                    id='city'
+                    name='city'
                 />
                 <Button text={isFetching ? 'Submitting...' : 'Signup'} />
                 <Link to = '/login'>already have an account?</Link>

@@ -18,25 +18,6 @@ const LoginForm = () => {
     });
 
     return (
-        // <form className={styles.loginForm} onSubmit = {formik.handleSubmit}>
-        //     <Input
-        //         placeholder='Login'
-        //         id='login'
-        //         name='login'
-        //         value={formik.values.login}
-        //         onChange={formik.handleChange}
-        //     />
-        //     <Input
-        //         placeholder='Password'
-        //         name='password'
-        //         id='password'
-        //         type='password'
-        //         onChange={formik.handleChange}
-        //         value={formik.values.password}
-        //     />
-        //     <Button text={'Login'} />
-        //     <Link to = '/signup'>don't have an account?</Link>
-        // </form>
         <Form values={{
             login: '',
             password: ''

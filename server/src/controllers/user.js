@@ -1,4 +1,3 @@
-
 const ServerError = require('../errors/server-error');
 const userService = require('../services/user');
 

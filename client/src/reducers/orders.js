@@ -1,10 +1,10 @@
 import ORDERS_ACTIONS from '../actions/orders/actions';
-import CONSTANTS from '../constants';
 
 const initialState = {
     isFetching: false,
     error: null,
-    orders: null
+    orders: null,
+    successMessage: null
 };
 
 const ordersReducer = (state = initialState, action) => {
@@ -23,11 +23,26 @@ const ordersReducer = (state = initialState, action) => {
                 orders: action.orders
             };
         }
-        case ORDERS_ACTIONS.ACTION_CHANGE_ORDER_STATUS_SUCCESS: {
+        case ORDERS_ACTIONS.ACTION_CLEAR_SUCCESS_MESSAGE: {
             return {
+                ...state,
+                successMessage: null
+            };
+        }
+        case ORDERS_ACTIONS.ACTION_CONFIRM_ORDER_SUCCESS: {
+            return {
+                ...state,
                 isFetching: false,
                 error: null,
-                orders: action.orders
+                successMessage: action.successMessage
+            };
+        }
+        case ORDERS_ACTIONS.ACTION_CHANGE_ORDER_STATUS_SUCCESS: {
+            return {
+                ...state,
+                isFetching: false,
+                error: null,
+                orders: action.orders,
             };
         }
         default:

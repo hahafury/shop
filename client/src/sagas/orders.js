@@ -1,19 +1,20 @@
 import { put, select } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 import * as ordersService from '../api/services/orders';
-import { request, getOrdersSuccess, changeOrderStatusSuccess } from '../actions/orders/action-creators';
-import Notification from '../components/app/notification';
+import { request, getOrdersSuccess, changeOrderStatusSuccess, confirmOrderSuccess } from '../actions/orders/action-creators';
 
+import Notification from '../components/app/notification';
+import { clearShoppingCart } from '../actions/shopping-cart/action-creators';
 
 export function* confirmOrder(action) {
     yield put(request());
     try {
-        yield ordersService.confirmOrder(action.orderData);
-        yield window.location.href = '/'
+        const order = yield ordersService.confirmOrder(action.orderData);
+        yield put(confirmOrderSuccess(order));
+        yield put(clearShoppingCart());
     } catch (error) {
-        
+        yield toast.error(<Notification message={error.response.statusText} />);
     };
 };
 
@@ -23,7 +24,7 @@ export function* getOrders(action) {
         const { data } = yield ordersService.getOrders(action.orderId);
         yield put(getOrdersSuccess(data));
     } catch (error) {
-        
+        yield toast.error(<Notification message={error.response.statusText} />);
     };
 };
 
@@ -37,6 +38,6 @@ export function* changeOrderStatus(action) {
         orders[orderIndex].status = action.status;
         yield put(changeOrderStatusSuccess(orders));
     } catch (error) {
-        
+        yield toast.error(<Notification message={error.response.statusText} />);
     };
 };
